@@ -1,23 +1,26 @@
-const express  = require('express');
-const bodyParser = require('body-parser');
-const professorRoutes = require('./routes/professorRoutes.js')
-const studentRoutes = require('./routes/studentRoutes.js');
-const projectRoutes = require('./routes/projectRoutes.js');
+const express = require('express');
+const mongodb = require('mongodb');
+const mongoose = require('mongoose');
+const professorRouter = require('./routes/professor.route.js');
+const studentRouter = require('./routes/student.route.js');
+const projectRouter = require('./routes/project.route.js');
+const app = express()
 
-const app = express();
-const port = process.env.PORT || 3001;
+app.use(express.json());    //middleware
+ 
 
-app.use(bodyParser.json());
 
-app.use('/professors', professorRoutes);
-app.use('/students', studentRoutes);
-app.use('/projects', projectRoutes);
+mongoose.connect("mongodb+srv://nikantyadav6803:mydb1@cluster0.vcgsfrs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then (function() {
+    console.log('Connected to database!');
+    app.listen(3000, function(){
+        console.log('Server is running on port 3000')
+    })
+})
+.catch (function() {
+    console.log('Connection failed!')
+});
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-  });
-  
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+app.use('/professor', professorRouter);
+app.use('/student', studentRouter);
+app.use('/project', projectRouter)
