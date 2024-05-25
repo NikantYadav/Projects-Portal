@@ -16,11 +16,15 @@ const professorschema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true]
-    }
+        required: [true],
+        unique: [true]
+    },
+    password : {type: String, required: [true]}, 
+    salt:  {type: String}
     
 });
 
-const professor = mongoose.model("professor", professorschema)
+
+const professor = mongoose.model("professor", professorschema);
 
 module.exports = professor;

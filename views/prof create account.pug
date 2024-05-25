@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Create Account
+  body
+    h1 Create Professor New Account
+    form(action="/professor/add", method="post")
+      label(for="name") Name:
+      input(type="text", id="name", name="name", required)
+      br
+      label(for="email") Email:
+      input(type="text", id="email", name="email", required)
+      br
+      label(for="department") Department:
+      select(id = "department", name = "department", required)
+        option(value = "CSE") CSE
+        option(value = "CHE") CHE
+        option(value = "EE")  EE 
+        option(value = "ME") ME 
+        option(value = "CE") CE 
+        option(value = "SDS") SDS
+        option(value = "MTH") MTH
+        option(value = "MSE") MSE
+        option(value = "BSBE") BSBE
+      br
+      label(for="address") Office Address:
+      input(type="text", id="address", name="address", required)
+      br
+      label(for="password") Password:
+      input(type="password", id="password", name="password", required)
+      br
+      button(type="submit") Create New Account
+    

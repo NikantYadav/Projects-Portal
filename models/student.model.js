@@ -12,15 +12,19 @@ const studentschema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true]
+        required: [true],
+        unique: [true]
     },
-    addldetails: {
+    rollnumber: {
         type: String,
-        required: [false]
-    }
+        required: [true]
+    }, 
+    password : {type: String, required: [true]}, 
+    salt:  {type: String}
     
 });
 
-const student = mongoose.model("student", studentschema)
+
+const student = mongoose.model("student", studentschema);
 
 module.exports = student;

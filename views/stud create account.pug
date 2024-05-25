@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Create Account
+  body
+    h1 Create Student New Account
+    form(action="/student/add", method="post")
+      label(for="name") Name:
+      input(type="text", id="name", name="name", required)
+      br
+      label(for="email") Email:
+      input(type="text", id="email", name="email", required)
+      br
+      label(for="department") Department:
+      select(id = "department", name = "department", required)
+        option(value = "CSE") CSE
+        option(value = "CHE") CHE
+        option(value = "EE")  EE 
+        option(value = "ME") ME 
+        option(value = "CE") CE 
+        option(value = "SDS") SDS
+        option(value = "MTH") MTH
+        option(value = "MSE") MSE
+        option(value = "BSBE") BSBE
+        option(value = "PHY") PHY
+      br
+      label(for="rollnumber") Roll Number:
+      input(type="text", id="rollnumber", name="rollnumber", required)
+      br
+      label(for="password") Password:
+      input(type="password", id="password", name="password", required)
+      br
+      button(type="submit") Create New Account
+    
