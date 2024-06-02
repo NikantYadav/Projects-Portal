@@ -1,18 +1,15 @@
-package-lock.json
-package.json
-node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
+# testing
+/coverage
 
-../node_modules
-../.pnp
-../.pnp.js
+# production
+/build
 
-../coverage
-
-
-../build
-
-
+# misc
 .DS_Store
 .env.local
 .env.development.local

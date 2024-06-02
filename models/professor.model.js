@@ -19,6 +19,10 @@ const professorschema = new mongoose.Schema({
         required: [true],
         unique: [true]
     },
+    type: {
+        type: String,
+        required:[true],
+    },
     password : {type: String, required: [true]}, 
     salt:  {type: String}
     

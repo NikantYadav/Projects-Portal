@@ -19,6 +19,14 @@ const studentschema = new mongoose.Schema({
         type: String,
         required: [true]
     }, 
+    type: {
+        type: String,
+        required:[true],
+    },
+    program: {
+        type: String,
+        required: [true]
+    },
     password : {type: String, required: [true]}, 
     salt:  {type: String}
     

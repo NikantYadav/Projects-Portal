@@ -5,11 +5,13 @@ const professor = require('../models/professor.model.js')
 const {createProfessor, getProfessor, getallProfessors} = require('../controllers/professor.controller.js')
 const professorRouter= express.Router();
 
+const verifyToken = require('../middlewares/auth.middleware.js')
+
 const app = express()
 
 // post professors
 professorRouter.post('/add', createProfessor)
-professorRouter.get('/get/:id',getProfessor)
-professorRouter.get('/get/w/allprofessors',getallProfessors)
+professorRouter.get('/get/:id',verifyToken,getProfessor)
+professorRouter.get('/get/w/allprofessors',verifyToken,getallProfessors)
 
 module.exports = professorRouter;
