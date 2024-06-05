@@ -31,10 +31,10 @@ const Studregister = () => {
                     });
                     const data = await response.json()
                     if (data.auth === true && data.type === 'student') {
-                        console.log('Successfully authenticated');
+                        console.log('Successfully authenticated')
                         navigate('/dashboards')
                     } else {
-                        console.log({ error: data.error });
+                        console.log({ error: data.error })
                         //navigate('/');
                     }
                 } catch (error) {

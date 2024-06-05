@@ -1,16 +1,50 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {  useCookies } from 'react-cookie'
 
-const Login = (props) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [emailError, setEmailError] = useState('')
-    const [passwordError, setPasswordError] = useState('')
+const Login = (props) => {                  
+    const [email, setEmail] = useState('')      
+    const [password, setPassword] = useState('')        
+    const [emailError, setEmailError] = useState('')        
+    const [passwordError, setPasswordError] = useState('')  
     const [cookies, setCookie] = useCookies(['cookie-name'])
 
     const navigate = useNavigate()
-    
+
+
+    useEffect(() => {
+        const Auth = async () => {
+            const token = cookies.auth
+            if (token) {
+                try {
+                    const response = await fetch('http://localhost:3001/auth/token/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ token }),
+                    })
+                    const data = await response.json()
+                    if (data.auth === true) {
+                        console.log('Successfully authenticated')
+                        if (data.type === 'student') {navigate('/dashboards') }
+                        else if (data.type ==='professor') {
+                            navigate('/dashboardp')
+                        }
+                    } else {
+                        console.log({ error: data.error })
+                    }
+                } catch (error) {
+                    console.log('Error:', error)
+                }
+            } else {
+            }
+        }
+
+        Auth()
+    }, [cookies.auth, navigate])
+
+
     const onButtonClick = (event) => {
         event.preventDefault()
         setEmailError('')

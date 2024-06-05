@@ -8,6 +8,8 @@ import Dashboards from './webpages/dashboards.js';
 import Register from './webpages/register.js';
 import Profregister from './webpages/profregister.js';
 import Studregister from './webpages/studregister.js';
+import ProfileP from './webpages/profilep.js';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -24,6 +26,7 @@ function App() {
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/register/professor" element={<Profregister/>}></Route>
       <Route path="/register/student" element={<Studregister />}></Route>
+      <Route path="/professor/profile" element={<ProfileP />}></Route>
       </Routes>
       </BrowserRouter>
     </div>

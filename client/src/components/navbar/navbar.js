@@ -1,16 +1,28 @@
 import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { IoClose, IoMenu } from "react-icons/io5"
+import {  useCookies } from 'react-cookie'
+
 
 const Navbar = () => {
     const[showMenu, setShowMenu] = useState(false)
+    const [cookies, setCookie, removeCookie] = useCookies(['cookie-name'])
+
+    const navigate = useNavigate()
+
 
     const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
 
+    const logout = () => {
+        removeCookie('auth')
+        navigate('/')
+    }
+
+
     return(
-        <header className="header">
+        <header className="header fixed-top">
 
         <nav className="navbar navbar-expand-lg cornflowerblue">
         <div className="container-fluid">
@@ -30,7 +42,10 @@ const Navbar = () => {
                 <a className="nav-link active text-light" href="#">Post a Project</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link active text-light" href="#">Profile</a>
+                <a className="nav-link active text-light" href="/professor/profile">Profile</a>
+                </li>
+                <li className="nav-item">
+                <a className="nav-link active text-light" onClick={logout}>Logout</a>
                 </li>
             </ul>
             </div>
@@ -39,5 +54,7 @@ const Navbar = () => {
         </header>
     )
 }
+
+
 
 export default Navbar;

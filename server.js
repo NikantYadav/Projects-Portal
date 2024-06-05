@@ -45,13 +45,6 @@ app.use('/professor', professorRouter);
 app.use('/student', studentRouter);
 app.use('/project', projectRouter);
 
-app.get('/profcreateacccount',(req,res)=>{
-    res.render('prof create account')
-})
-
-app.get('/studcreateacccount',(req,res)=>{
-    res.render('stud create account')
-})
 
 
 app.use('*', function(req, res){

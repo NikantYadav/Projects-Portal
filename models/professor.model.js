@@ -23,6 +23,18 @@ const professorschema = new mongoose.Schema({
         type: String,
         required:[true],
     },
+    about: {
+        type: String,
+    }, 
+    hours: {
+        type: String, 
+    },
+    research : {
+        type: String,
+    },
+    profileImageUrl: {
+        type: String,
+    },  
     password : {type: String, required: [true]}, 
     salt:  {type: String}
     
