@@ -51,15 +51,10 @@
 
 ##  Overview
 
-<code>❯ REPLACE-ME</code>
+The ProjectsPortal is a web-based platform developed for academic collaboration at IITK. Its primary goal is to streamline the interaction between professors and students by providing a dedicated space where professors can post research projects, and students can apply to work on these projects.
 
----
+The portal facilitates efficient project management and communication by allowing users to perform various functions, such as submitting project applications and updating project details. Additionally, it includes a real-time chat feature that ensures secure and encrypted communication between users. This system aims to enhance collaboration and provide a user-friendly interface for managing academic projects.
 
-##  Features
-
-<code>❯ REPLACE-ME</code>
-
----
 
 ##  Repository Structure
 
@@ -272,16 +267,6 @@ Execute the test suite using the following command:
 ❯ npm test
 ```
 
----
-
-##  Project Roadmap
-
-- [X] **`Task 1`**: <strike>Implement feature one.</strike>
-- [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
-
----
-
 ##  Contributing
 
 Contributions are welcome! Here are several ways you can contribute:
@@ -324,17 +309,5 @@ Contributions are welcome! Here are several ways you can contribute:
    </a>
 </p>
 </details>
-
----
-
-##  License
-
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
----
-
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
 
 ---
